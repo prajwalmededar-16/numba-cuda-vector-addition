@@ -25,7 +25,7 @@ To utilize GPU parallelism by implementing vector addition using CUDA — where 
   ```python
   c[idx] = a[idx] + b[idx]
 
-2️⃣ Main Program Steps
+## 2️⃣ Main Program Steps
 
 Vector size: 1024 elements
 
@@ -38,28 +38,28 @@ c = np.zeros(n, dtype=np.float32)
 
 Transfer data to GPU using cuda.to_device()
 
-Configure parallel execution:
+## Configure parallel execution:
 
 Threads per block = 256  
 Blocks per grid = 4  
 (4 × 256 = 1024 threads total)
 
 
-Launch the CUDA kernel:
+## Launch the CUDA kernel:
 
 vector_addition[blocks_per_grid, threads_per_block](a_device, b_device, c_device)
 
 
-Copy result back to CPU memory:
+## Copy result back to CPU memory:
 
 c = c_device.copy_to_host()
 
 
-Print output:
+## Print output:
 
 Result of vector addition: [2. 2. 2. ... 2.]
 
-🧠 Learning Outcome
+## 🧠 Learning Outcome
 
 Understanding of thread indexing (cuda.grid(1))
 
@@ -69,7 +69,7 @@ Launching and managing GPU kernels
 
 Demonstration of GPU utilization in basic numerical operations
 
-🖥️ How to Run
+## 🖥️ How to Run
 
 Install dependencies:
 
@@ -83,4 +83,5 @@ Run the file:
 python vector_addition.py
 
 
-Ensure your system has an NVIDIA GPU with CUDA support.
+
+## Ensure your system has an NVIDIA GPU with CUDA support.
